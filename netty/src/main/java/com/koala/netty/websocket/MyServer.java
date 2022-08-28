@@ -1,6 +1,6 @@
 package com.koala.netty.websocket;
 
-import com.atguigu.netty.heartbeat.MyServerHandler;
+//import com.atguigu.netty.heartbeat.MyServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;

@@ -1,7 +1,10 @@
 package com.koala.netty.dubborpc.customer;
 
-import com.atguigu.netty.dubborpc.netty.NettyClient;
-import com.atguigu.netty.dubborpc.publicinterface.HelloService;
+/*import com.atguigu.netty.dubborpc.netty.NettyClient;
+import com.atguigu.netty.dubborpc.publicinterface.HelloService;*/
+
+import com.koala.netty.dubborpc.netty.NettyClient;
+import com.koala.netty.dubborpc.publicinterface.HelloService;
 
 public class ClientBootstrap {
 

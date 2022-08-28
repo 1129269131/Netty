@@ -9,27 +9,33 @@ import io.netty.util.CharsetUtil;
 
 import java.net.URI;
 
-/*
-说明
-1. SimpleChannelInboundHandler 是 ChannelInboundHandlerAdapter
-2. HttpObject 客户端和服务器端相互通讯的数据被封装成 HttpObject
+/**
+ * day04：
+ *      Http服务程序实例
+ *
+ *      测试：
+ *          1、启动 com.koala.netty.http.TestServer 服务端
+ *          2、浏览器访问：http://localhost:6668
+ *          3、查看服务端/浏览器输出消息
+ *          4、浏览器端F12查看请求、响应信息
+ *
+ *          说明
+ *              1. SimpleChannelInboundHandler 是 ChannelInboundHandlerAdapter
+ *              2. HttpObject 客户端和服务器端相互通讯的数据被封装成 HttpObject
+ *
+ * Create by koala on 2022-08-28
  */
 public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObject> {
-
 
     //channelRead0 读取客户端数据
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, HttpObject msg) throws Exception {
-
-
         System.out.println("对应的channel=" + ctx.channel() + " pipeline=" + ctx
         .pipeline() + " 通过pipeline获取channel" + ctx.pipeline().channel());
+        System.out.println("当前ctx的handler=" + ctx.handler());//此处打断点，浏览器访问：http://localhost:6668，研究ChannelHandlerContext，关键词：handler、next、prev、pipeline、channel
 
-        System.out.println("当前ctx的handler=" + ctx.handler());
-
-        //判断 msg 是不是 httprequest请求
+        //判断 msg 是不是 httpRequest请求
         if(msg instanceof HttpRequest) {
-
             System.out.println("ctx 类型="+ctx.getClass());
 
             System.out.println("pipeline hashcode" + ctx.pipeline().hashCode() + " TestHttpServerHandler hash=" + this.hashCode());
@@ -45,11 +51,11 @@ public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObjec
                 System.out.println("请求了 favicon.ico, 不做响应");
                 return;
             }
-            //回复信息给浏览器 [http协议]
 
+            //回复信息给浏览器 [http协议]
             ByteBuf content = Unpooled.copiedBuffer("hello, 我是服务器", CharsetUtil.UTF_8);
 
-            //构造一个http的相应，即 httpresponse
+            //构造一个http的响应，即 httpResponse
             FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK, content);
 
             response.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/plain");
@@ -57,7 +63,6 @@ public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObjec
 
             //将构建好 response返回
             ctx.writeAndFlush(response);
-
         }
     }
 

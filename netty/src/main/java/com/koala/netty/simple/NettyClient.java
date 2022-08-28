@@ -8,6 +8,22 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
+/**
+ * day02：
+ *      Netty入门-客户端
+ *
+ *      测试：
+ *          1、启动 com.koala.netty.simple.NettyServer 服务端
+ *          2、启动 com.koala.netty.simple.NettyClient 客户端（客户端可启动多个进行测试）
+ *          3、查看服务器端/客户端输出
+ *          4、com.koala.netty.simple.NettyServer 中的 EventLoopGroup bossGroup = new NioEventLoopGroup(1); 处打断点调试
+ *          5、com.koala.netty.simple.NettyClient 中的 System.out.println("服务器读取线程 " + Thread.currentThread().getName() + " channle =" + ctx.channel()); 处打断点调试
+ *          6、debugger运行服务端/客户端客户端可启动多个进行测试）程序
+ *          7、查看断点处的信息
+ *
+ * Create by koala on 2022-08-27
+ */
+
 public class NettyClient {
     public static void main(String[] args) throws Exception {
 

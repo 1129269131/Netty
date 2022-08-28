@@ -10,6 +10,21 @@ import io.netty.handler.codec.string.StringEncoder;
 
 import java.util.Scanner;
 
+/**
+ * day06：
+ *      Netty群聊系统客户端
+ *
+ *      测试：
+ *          1、启动 com.koala.netty.groupchat.GroupChatServer 服务端
+ *          2、启动 com.koala.netty.groupchat.GroupChatClient 客户端（客户端可启动多个进行测试）
+ *          3、查看服务器端/客户端输出
+ *          4、在任意客户端输入内容
+ *          5、查看服务器端/客户端输出
+ *          6、任意 stop 一个客户端
+ *          7、查看服务器端/客户端输出
+ *
+ * Create by koala on 2022-08-27
+ */
 
 public class GroupChatClient {
 

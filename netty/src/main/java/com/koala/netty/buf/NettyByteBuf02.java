@@ -5,6 +5,17 @@ import io.netty.buffer.Unpooled;
 
 import java.nio.charset.Charset;
 
+/**
+ * day05：
+ *      Unpooled应用实例2
+ *
+ *      测试：
+ *          1、启动 com.koala.netty.buf.NettyByteBuf02
+ *          2、查看控制台输出
+ *
+ * Create by koala on 2022-08-28
+ */
+
 public class NettyByteBuf02 {
     public static void main(String[] args) {
 
@@ -26,8 +37,8 @@ public class NettyByteBuf02 {
             System.out.println(byteBuf.writerIndex()); // 12
             System.out.println(byteBuf.capacity()); // 36
 
-            //System.out.println(byteBuf.readByte()); //
-            System.out.println(byteBuf.getByte(0)); // 104
+            //System.out.println(byteBuf.readByte()); // 104，解开/注释 查看运行结果
+            System.out.println(byteBuf.getByte(0)); // 104，解开/注释 查看运行结果
 
             int len = byteBuf.readableBytes(); //可读的字节数  12
             System.out.println("len=" + len);

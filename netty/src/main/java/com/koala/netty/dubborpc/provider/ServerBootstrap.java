@@ -1,6 +1,8 @@
 package com.koala.netty.dubborpc.provider;
 
-import com.atguigu.netty.dubborpc.netty.NettyServer;
+//import com.atguigu.netty.dubborpc.netty.NettyServer;
+
+import com.koala.netty.dubborpc.netty.NettyServer;
 
 //ServerBootstrap 会启动一个服务提供者，就是 NettyServer
 public class ServerBootstrap {
