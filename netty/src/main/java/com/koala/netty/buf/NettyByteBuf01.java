@@ -33,6 +33,7 @@ public class NettyByteBuf01 {
         }
 
         System.out.println("capacity=" + buffer.capacity());//10
+
         //输出
         for(int i = 0; i<buffer.capacity(); i++) {
             System.out.println(buffer.getByte(i));

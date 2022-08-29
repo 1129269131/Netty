@@ -51,8 +51,6 @@ public class NettyByteBuf02 {
             //按照某个范围读取
             System.out.println(byteBuf.getCharSequence(0, 4, Charset.forName("utf-8")));
             System.out.println(byteBuf.getCharSequence(4, 6, Charset.forName("utf-8")));
-
-
         }
 
 

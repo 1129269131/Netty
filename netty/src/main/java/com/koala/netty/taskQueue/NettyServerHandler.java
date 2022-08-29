@@ -51,7 +51,6 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
         ctx.channel().eventLoop().execute(new Runnable() {
             @Override
             public void run() {
-
                 try {
                     Thread.sleep(10 * 1000);
                     ctx.writeAndFlush(Unpooled.copiedBuffer("hello, 客户端~(>^ω^<)喵3", CharsetUtil.UTF_8));
@@ -66,7 +65,6 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
         ctx.channel().eventLoop().schedule(new Runnable() {
             @Override
             public void run() {
-
                 try {
                     Thread.sleep(5 * 1000);
                     ctx.writeAndFlush(Unpooled.copiedBuffer("hello, 客户端~(>^ω^<)喵4", CharsetUtil.UTF_8));
