@@ -15,7 +15,7 @@ import java.net.URI;
  *
  *      测试：
  *          1、启动 com.koala.netty.http.TestServer 服务端
- *          2、浏览器访问：http://localhost:6668
+ *          2、浏览器访问：http://localhost:7768
  *          3、查看服务端/浏览器输出消息
  *          4、浏览器端F12查看请求、响应信息
  *
@@ -32,7 +32,7 @@ public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObjec
     protected void channelRead0(ChannelHandlerContext ctx, HttpObject msg) throws Exception {
         System.out.println("对应的channel=" + ctx.channel() + " pipeline=" + ctx
         .pipeline() + " 通过pipeline获取channel" + ctx.pipeline().channel());
-        System.out.println("当前ctx的handler=" + ctx.handler());//此处打断点，浏览器访问：http://localhost:6668，研究ChannelHandlerContext，关键词：handler、next、prev、pipeline、channel
+        System.out.println("当前ctx的handler=" + ctx.handler());//此处打断点，浏览器访问：http://localhost:7768，研究ChannelHandlerContext，关键词：handler、next、prev、pipeline、channel
 
         //判断 msg 是不是 httpRequest请求
         if(msg instanceof HttpRequest) {
@@ -65,7 +65,5 @@ public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObjec
             ctx.writeAndFlush(response);
         }
     }
-
-
 
 }

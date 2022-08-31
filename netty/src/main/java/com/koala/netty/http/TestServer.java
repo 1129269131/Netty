@@ -12,7 +12,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  *
  *      测试：
  *          1、启动 com.koala.netty.http.TestServer 服务端
- *          2、浏览器访问：http://localhost:6668
+ *          2、浏览器访问：http://localhost:7768
  *          3、查看服务端/浏览器输出消息
  *          4、浏览器端F12查看请求、响应信息
  *
@@ -30,10 +30,10 @@ public class TestServer {
 
             serverBootstrap.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class).childHandler(new TestServerInitializer());
 
-            ChannelFuture channelFuture = serverBootstrap.bind(6668).sync();
+            ChannelFuture channelFuture = serverBootstrap.bind(7768).sync();
             
             channelFuture.channel().closeFuture().sync();
-        }finally {
+        } finally {
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
         }

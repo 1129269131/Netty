@@ -11,7 +11,7 @@ import io.netty.handler.codec.http.HttpServerCodec;
  *
  *      测试：
  *          1、启动 com.koala.netty.http.TestServer 服务端
- *          2、浏览器访问：http://localhost:6668
+ *          2、浏览器访问：http://localhost:7768
  *          3、查看服务端/浏览器输出消息
  *          4、浏览器端F12查看请求、响应信息
  *
@@ -35,6 +35,6 @@ public class TestServerInitializer extends ChannelInitializer<SocketChannel> {
         //2. 增加一个自定义的handler
         pipeline.addLast("MyTestHttpServerHandler", new TestHttpServerHandler());
 
-        System.out.println("ok~~~~");//此处打断点，浏览器访问：http://localhost:6668，研究ChannelPipeline，关键词：head、tail、handler、next、prev
+        System.out.println("ok~~~~");//此处打断点，浏览器访问：http://localhost:7768，研究ChannelPipeline，关键词：head、tail、handler、next、prev
     }
 }

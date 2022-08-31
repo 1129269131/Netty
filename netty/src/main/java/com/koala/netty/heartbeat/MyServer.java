@@ -14,9 +14,25 @@ import io.netty.handler.timeout.IdleStateHandler;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * day07：
+ *      Netty心跳机制
+ *
+ *      测试：
+ *          1、启动 com.koala.netty.heartbeat.MyServer 服务端
+ *          2、启动 com.koala.netty.heartbeat.MyClient 客户端
+ *          3、查看服务端控制台信息
+ *
+ *      PS：
+ *          核心：
+ *              1、new IdleStateHandler(7000,7000,10, TimeUnit.SECONDS)
+ *              2、com.koala.netty.heartbeat.MyServerHandler
+ *
+ * Create by koala on 2022-08-31
+ */
+
 public class MyServer {
     public static void main(String[] args) throws Exception{
-
 
         //创建两个线程组
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
@@ -45,7 +61,7 @@ public class MyServer {
                     triggers an {@link IdleStateEvent} when a {@link Channel} has not performed
  * read, write, or both operation for a while.
  *                  6. 当 IdleStateEvent 触发后 , 就会传递给管道 的下一个handler去处理
- *                  通过调用(触发)下一个handler 的 userEventTiggered , 在该方法中去处理 IdleStateEvent(读空闲，写空闲，读写空闲)
+ *                  通过调用(触发)下一个handler 的 userEventTriggered , 在该方法中去处理 IdleStateEvent(读空闲/写空闲/读写空闲)
                      */
                     pipeline.addLast(new IdleStateHandler(7000,7000,10, TimeUnit.SECONDS));
                     //加入一个对空闲检测进一步处理的handler(自定义)
