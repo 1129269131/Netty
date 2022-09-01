@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>websocket</title>
 </head>
 <body>
 <script>
@@ -10,7 +10,8 @@
     //判断当前浏览器是否支持websocket
     if(window.WebSocket) {
         //go on
-        socket = new WebSocket("ws://localhost:7000/hello2");
+        socket = new WebSocket("ws://localhost:7000/hello");
+
         //相当于channelReado, ev 收到服务器端回送的消息
         socket.onmessage = function (ev) {
             var rt = document.getElementById("responseText");
@@ -20,14 +21,14 @@
         //相当于连接开启(感知到连接开启)
         socket.onopen = function (ev) {
             var rt = document.getElementById("responseText");
-            rt.value = "连接开启了.."
+            rt.value = "连接开启了..."
         }
 
         //相当于连接关闭(感知到连接关闭)
         socket.onclose = function (ev) {
 
             var rt = document.getElementById("responseText");
-            rt.value = rt.value + "\n" + "连接关闭了.."
+            rt.value = rt.value + "\n" + "连接关闭了..."
         }
     } else {
         alert("当前浏览器不支持websocket")

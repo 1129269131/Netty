@@ -32,11 +32,11 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class MyServer {
-    public static void main(String[] args) throws Exception{
 
+    public static void main(String[] args) throws Exception{
         //创建两个线程组
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
-        EventLoopGroup workerGroup = new NioEventLoopGroup(); //8个NioEventLoop
+        EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
 
             ServerBootstrap serverBootstrap = new ServerBootstrap();
@@ -72,10 +72,10 @@ public class MyServer {
             //启动服务器
             ChannelFuture channelFuture = serverBootstrap.bind(7000).sync();
             channelFuture.channel().closeFuture().sync();
-
-        }finally {
+        } finally {
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
         }
     }
+
 }

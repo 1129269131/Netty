@@ -14,7 +14,6 @@ public class MyServerHandler extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
-
         if(evt instanceof IdleStateEvent) {
             //将  evt 向下转型 IdleStateEvent
             IdleStateEvent event = (IdleStateEvent) evt;

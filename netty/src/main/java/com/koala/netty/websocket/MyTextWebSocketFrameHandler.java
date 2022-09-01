@@ -20,7 +20,7 @@ public class MyTextWebSocketFrameHandler extends SimpleChannelInboundHandler<Tex
     //当web客户端连接后， 触发方法
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
-        //id 表示唯一的值，LongText 是唯一的 ShortText 不是唯一
+        //id 表示唯一的值，LongText：是唯一的，ShortText：不是唯一
         System.out.println("handlerAdded 被调用" + ctx.channel().id().asLongText());
         System.out.println("handlerAdded 被调用" + ctx.channel().id().asShortText());
     }
