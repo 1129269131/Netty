@@ -12,11 +12,8 @@ import io.netty.handler.codec.protobuf.ProtobufEncoder;
 
 public class NettyClient {
     public static void main(String[] args) throws Exception {
-
         //客户端需要一个事件循环组
         EventLoopGroup group = new NioEventLoopGroup();
-
-
         try {
             //创建客户端启动对象
             //注意客户端使用的不是 ServerBootstrap 而是 Bootstrap
@@ -43,9 +40,7 @@ public class NettyClient {
             //给关闭通道进行监听
             channelFuture.channel().closeFuture().sync();
         }finally {
-
             group.shutdownGracefully();
-
         }
     }
 }

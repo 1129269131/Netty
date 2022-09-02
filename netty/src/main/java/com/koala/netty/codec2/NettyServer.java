@@ -1,12 +1,30 @@
 package com.koala.netty.codec2;
 
-//import com.atguigu.netty.codec.StudentPOJO;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.protobuf.ProtobufDecoder;
+
+/**
+ * day09：
+ *      ProtoBuf传输多种类型
+ *
+ *      测试：
+ *          1、启动 com.koala.netty.codec2.NettyServer 服务端
+ *          2、启动 com.koala.netty.codec2.NettyClient 客户端（启动多个进行测试）
+ *          3、查看服务端控制台输出的信息
+ *
+ *      PS：
+ *          1、使用 com.koala.netty.codec2/exe/protoc.exe 对 com.koala.netty.codec2.Student.proto 文件执行生成 MyDataInfo.java 对象
+ *              1.1、进入 com.koala.netty.codec2/exe/protoc.exe 所在的文件夹
+ *              1.2、cmd 打开
+ *              1.3、执行命令：protoc.exe --java_out=. Student.proto
+ *              1.4、生成的文件就可以在 com.koala.netty.codec2 项目中使用了
+ *
+ * Create by koala on 2022-09-02
+ */
 
 public class NettyServer {
     public static void main(String[] args) throws Exception {

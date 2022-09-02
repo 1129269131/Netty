@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 public class MyTextWebSocketFrameHandler extends SimpleChannelInboundHandler<TextWebSocketFrame>{
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg) throws Exception {
-
         System.out.println("服务器收到消息 " + msg.text());
 
         //回复消息
@@ -28,7 +27,6 @@ public class MyTextWebSocketFrameHandler extends SimpleChannelInboundHandler<Tex
 
     @Override
     public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
-
         System.out.println("handlerRemoved 被调用" + ctx.channel().id().asLongText());
     }
 
