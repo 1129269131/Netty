@@ -29,7 +29,6 @@ public class MyClient {
                     .handler(new MyClientInitializer()); //自定义一个初始化类
 
             ChannelFuture channelFuture = bootstrap.connect("localhost", 7000).sync();
-
             channelFuture.channel().closeFuture().sync();
         }finally {
             group.shutdownGracefully();

@@ -7,6 +7,7 @@ import java.nio.charset.Charset;
 public class MyClientHandler extends SimpleChannelInboundHandler<MessageProtocol> {
 
     private int count;
+
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         //使用客户端发送10条数据 "今天天气冷，吃火锅" 编号

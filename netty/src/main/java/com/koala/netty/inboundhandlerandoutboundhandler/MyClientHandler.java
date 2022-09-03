@@ -1,11 +1,7 @@
 package com.koala.netty.inboundhandlerandoutboundhandler;
 
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.util.CharsetUtil;
-
-import java.nio.charset.Charset;
 
 public class MyClientHandler  extends SimpleChannelInboundHandler<Long> {
     @Override
@@ -28,7 +24,7 @@ public class MyClientHandler  extends SimpleChannelInboundHandler<Long> {
         //3. MyLongToByteEncoder 父类  MessageToByteEncoder
         //4. 父类  MessageToByteEncoder
         /*
-
+        源码：
          public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
         ByteBuf buf = null;
         try {

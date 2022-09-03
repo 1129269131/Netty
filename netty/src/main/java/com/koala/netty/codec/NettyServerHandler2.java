@@ -17,10 +17,11 @@ import io.netty.util.CharsetUtil;
  */
 public class NettyServerHandler2 extends SimpleChannelInboundHandler<StudentPOJO.Student> {
 
-    //读取数据实际(这里我们可以读取客户端发送的消息)
-    /*
-    1. ChannelHandlerContext ctx:上下文对象, 含有 管道pipeline , 通道channel, 地址
-    2. Object msg: 就是客户端发送的数据 默认Object
+    /**
+     * 读取数据实际(这里我们可以读取客户端发送的消息)
+     * @param ctx：上下文对象, 含有 管道pipeline , 通道channel, 地址
+     * @param msg：就是客户端发送的数据 默认Object
+     * @throws Exception
      */
     @Override
     public void channelRead0(ChannelHandlerContext ctx, StudentPOJO.Student msg) throws Exception {
@@ -42,4 +43,5 @@ public class NettyServerHandler2 extends SimpleChannelInboundHandler<StudentPOJO
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         ctx.close();
     }
+
 }
